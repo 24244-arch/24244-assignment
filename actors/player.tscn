@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cp78dwfsugdrr"]
+
+[ext_resource type="Texture2D" uid="uid://k7lmqme4nlec" path="res://assets/Space Runner Assets - 27-11-20/Astronaut/Astronaut_Idle.png" id="1_niuxy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvpqy"]
+atlas = ExtResource("1_niuxy")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ru2jd"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvpqy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33p1b"]
+size = Vector2(12, 16)
+
+[node name="player" type="CharacterBody2D" unique_id=415279156]
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=85743016]
+position = Vector2(0, -12)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_ru2jd")
+animation = &"idle"
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=434615191]
+position = Vector2(0, -12)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_33p1b")
